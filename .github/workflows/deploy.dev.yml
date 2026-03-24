@@ -25,7 +25,7 @@ jobs:
       - name: Configure AWS
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::925785106635:role/from_terraform_access_role
+          role-to-assume: arn:aws:iam::675254204370:role/terraform-aws-myapp-role
           aws-region: ap-northeast-1
 
       - name: Setup Terraform
@@ -35,7 +35,7 @@ jobs:
         run: |
           cd terraform
           terraform init \
-          -backend-config="bucket=terraform-state-kayanuma" \
+          -backend-config="bucket=terraform-test-sen" \
           -backend-config="key=dev/terraform.tfstate" \
           -backend-config="region=ap-northeast-1"
 
